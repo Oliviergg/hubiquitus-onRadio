@@ -85,10 +85,11 @@ hubiquitus.start({
 	            // 	type: "channel_out",
 	            // 	targetActorAid:"urn:localhost:broadcastChannel"
 	            // }
-	            {
-	            	type: "socket_out",
-	            	targetActorAid:"urn:localhost:onRadioCompleteTrackActor"
-	            }
+	            // 
+	            // {
+	            // 	type: "socket_out",
+	            // 	targetActorAid:"urn:localhost:onRadioCompleteTrackActor"
+	            // }
 
            ]
        }
