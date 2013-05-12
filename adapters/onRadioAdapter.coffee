@@ -1,4 +1,3 @@
-
 {TimerAdapter} = require "hubiquitus"
 request = require "request" 
 libxmljs = require "libxmljs"

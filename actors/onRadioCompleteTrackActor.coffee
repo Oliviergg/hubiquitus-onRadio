@@ -1,6 +1,6 @@
 {Actor} = require "hubiquitus"
+
 class onRadioCompleteTrackActor extends Actor
-	
 	constructor: (topology) ->
 		super
 		@type = "onRadioCompleteTrackActor"
@@ -8,7 +8,11 @@ class onRadioCompleteTrackActor extends Actor
 	onMessage: (hMessage) ->
 		broadcast=hMessage.payload
 		@log "info", JSON.stringify broadcast
-		@send payload:broadcast,actor:"urn:localhost:onRadioCompleteTrackActor"
+		esPayload={
+			type:"track",
+			document:broadcast.track
+		}
+		@send payload:esPayload,actor:"urn:localhost:onRadioCompleteTrackActor"
 		
 
 module.exports = onRadioCompleteTrackActor;

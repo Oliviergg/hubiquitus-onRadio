@@ -21,7 +21,10 @@ class elasticSearchIndexAdapter extends OutboundAdapter
       super
 
   send: (message) ->
-    @elasticsearchclient.index(@elasticsearchOptions.index, "track", message.payload.track, undefined, undefined)
+    esIndex = message.payload.index || @elasticsearchOptions.index
+    esType = message.payload.type || @elasticsearchOptions.type
+    esDocument = message.payload.document
+    @elasticsearchclient.index(esIndex,esType,esDocument, undefined, undefined)
     .on 'data', (data) ->
         console.log(data)
     .exec()
