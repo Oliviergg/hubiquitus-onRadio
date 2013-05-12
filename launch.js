@@ -59,11 +59,26 @@ hubiquitus.start({
            ]
        },
        {
-           actor: "urn:localhost:onRadioCompleteTrackActor",
-           type: "onRadioCompleteTrackActor",
-           adapters: [ { 
-           	type: "socket_in",
-         } ]
+         actor: "urn:localhost:onRadioCompleteTrackActor",
+         type: "onRadioCompleteTrackActor",
+         adapters: [  { 
+         	              type: "socket_in", 
+                      },
+                      {
+                        type: "elasticSearchIndexAdapter",
+                        targetActorAid: "urn:localhost:onRadioCompleteTrackActor",
+                        properties:{
+                          elasticSearchOptions:{
+                            server:{
+                              host: 'localhost',
+                              port: 9200,
+                              secure:false                              
+                            },
+                            index:"onradio"
+                          }
+                        }
+                      }
+                   ]
        },
        {
            actor: "urn:localhost:onRadioActor",

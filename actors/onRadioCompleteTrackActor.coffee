@@ -8,6 +8,7 @@ class onRadioCompleteTrackActor extends Actor
 	onMessage: (hMessage) ->
 		broadcast=hMessage.payload
 		@log "info", JSON.stringify broadcast
+		@send payload:broadcast,actor:"urn:localhost:onRadioCompleteTrackActor"
 		
 
 module.exports = onRadioCompleteTrackActor;
