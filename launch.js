@@ -81,17 +81,46 @@ hubiquitus.start({
                    ]
        },
        {
+        actor: "urn:localhost:logWatcher",
+        type:"analyzeLogActor",
+        adapters: [
+          {
+            type:"fileWatcherAdapter",
+            properties:{
+              filename:"/var/log/system.log"
+              // filename:"test.text"
+            }
+          },
+          {
+            type: "elasticSearchIndexAdapter",
+            targetActorAid: "urn:localhost:analyzeLogActor",
+            properties:{
+              elasticSearchOptions:{
+                server:{
+                  host: 'localhost',
+                  port: 9200,
+                  secure:false                              
+                },
+                index:"systemlog"
+              }
+            }
+          }
+        ]
+       },
+       {
            actor: "urn:localhost:onRadioActor",
            type: "onRadioActor",
            adapters: [
 						 // IN
-	           {
+  	          {
 	               type: "onRadioEurope1Adapter",
 	               properties : onRadioAdapterProperties
-	            },{
+	            },
+              {
 	               type: "onRadioSkyrockAdapter",
 	               properties : onRadioAdapterProperties
-	            },{
+	            },
+              {
 	               type: "onRadioNovaAdapter",
 	               properties : onRadioAdapterProperties
 	            },
