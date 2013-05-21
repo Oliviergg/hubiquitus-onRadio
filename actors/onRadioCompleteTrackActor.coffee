@@ -12,7 +12,6 @@ class onRadioCompleteTrackActor extends Actor
 			type:"track",
 			document:broadcast.track
 		}
-		@send payload:esPayload,actor:"urn:localhost:onRadioCompleteTrackActor"
+		@send payload:esPayload,actor:"urn:localhost:ElasticSearchIndex"
 		
-
 module.exports = onRadioCompleteTrackActor;

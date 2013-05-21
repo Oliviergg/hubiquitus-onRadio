@@ -34,7 +34,7 @@ class onRadioAdapter        extends TimerAdapter
     cleaner.track={}
     cleaner.track.artist = S(dirty.track.artist or "").trim().s
     cleaner.track.title = S(dirty.track.title or "").trim().s
-    cleaner.track.album = S(dirty.track.album or "").trim().s
+    cleaner.track.collection = S(dirty.track.collection or "").trim().s
     return cleaner
 
 module.exports = onRadioAdapter;

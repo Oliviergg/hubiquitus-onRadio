@@ -11,6 +11,6 @@ class onRadioActor extends Actor
 			+ " - Current broadcast : Artist:" + broadcast.track.artist \
 			+ " Title " + broadcast.track.title
 		# broadcast.debug = true
-		@send payload:broadcast, actor:"urn:localhost:onRadioCompleteTrackActor"
+		@send payload:broadcast, actor:"urn:localhost:onRadioITunesFinder"
 
 module.exports = onRadioActor;
